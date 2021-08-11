@@ -1,6 +1,7 @@
 <?php
 // session_start();
 require_once ('Connect.php');
+
 class Usuario
 {
     protected $connect;
@@ -23,21 +24,25 @@ class Usuario
         $query->bindParam(":password", $password);
         $query->execute();
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
-        //echo($usuario['']);
         if ($usuario) {
             $_SESSION['email'] = $usuario["email"];
+            $_SESSION['Nombre'] = $usuario["Nombre"];
             header("location:http://localhost/ejercicio_poo_mysql/iniciosql.php");
         } else {
             $msg = "Email o contraseña ingresados no validos";
             $aPahtOrigin = explode('?', $_SERVER['HTTP_REFERER']);
             $pahtOrigin = $aPahtOrigin[0];
-            //var_dump($aPahtOrigin);
             header("Location: $pahtOrigin?msg=$msg");
         }
     }
 
     function cerrarsesion()
     {
+        //unset($_SESSION['email']);
+        //unset($_SESSION['password']);
+        //unset($_SESSION['Nombre']);
+        //session_destroy();
+        //echo "se eliminan todas las variables de sesión y se destruye la sesión";
         session_unset();
         session_destroy();
         header("location:http://localhost/ejercicio_poo_mysql/loginsql.php");

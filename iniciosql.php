@@ -2,7 +2,7 @@
 session_start();
 
 if (!$_SESSION) {
-    header("location: http://localhost/ejercicio_poo_mysql/iniciosql.php");
+    header("location: http://localhost/ejercicio_poo_mysql/loginsql.php");
 }
 ?>
 <!DOCTYPE html>
@@ -14,8 +14,8 @@ if (!$_SESSION) {
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Seccion iniciada, Hola 
-    <?php echo $_SESSION['email'];?>
+    <h1>Seccion iniciada, Bienvenido
+    <?php echo $_SESSION['Nombre'];?>
     </h1>
     <!-- BOTON DENTRO DE UN FORM PARA CERRAR SESION https://www.w3schools.com/php/php_sessions.asp-->
     <form class="form-signin" action="cerrarsesionsql.php" method="POST">

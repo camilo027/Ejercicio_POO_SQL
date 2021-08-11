@@ -1,7 +1,8 @@
 <?php
-include_once('loginsql.php');
 
-$session = new session();
+require_once('Usuario.php');
+
+$session = new Usuario();
 $session->cerrarsesion();
 
 ?>

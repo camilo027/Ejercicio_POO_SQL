@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+
+if ($_SESSION) {
+    header("Location:http://localhost/ejercicio_poo_mysql/iniciosql.php");
+  }
+
 $msg=$_REQUEST['msg'] ?? '';
 ?>
 <!doctype html>
